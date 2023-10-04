@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btnJump = (Button) findViewById(R.id.btn_jump);
+        Button btnJump = (Button) findViewById(R.id.btn_jumpToSecond);
         btnJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(MainActivity.this, com.selab.helloandroid.SecondActivity.class);
+                                Intent intent = new Intent(MainActivity.this, com.example.helloandroid.SecondActivity.class);
                                 startActivity(intent);
                             }
                         });
@@ -40,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 // display the AlertDialog
                 normalDialog.show();
             }
+        });
+
+        Button btnJumpToConter = findViewById(R.id.btn_jumpToCounter);
+        btnJumpToConter.setOnClickListener(view ->{
+            Intent intent = new Intent (MainActivity.this, CounterActivity.class);
+            startActivity(intent);
         });
     }
 }
